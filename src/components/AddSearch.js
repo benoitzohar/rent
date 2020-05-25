@@ -22,7 +22,7 @@ async function handleSubmit(e, data) {
 export default function AddSearch() {
   const name = useInput("Urban Barn");
   const feed = useInput(
-    "https://www.kijiji.ca/rss-srp-couch-futon/ontario/urban-barn-leather/k0c238l9004"
+    "https://www.kijiji.ca/rss-srp-appartement-condo/ville-de-montreal/c37l1700281?ad=offering&price=2200__3000"
   );
   return (
     <form onSubmit={(e) => handleSubmit(e, { name, feed })}>
