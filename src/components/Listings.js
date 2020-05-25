@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import Listing from './Listing';
-import styled from 'styled-components';
-import { ListingsContext } from '../pages/_app';
-
+import React, { useContext } from "react";
+import Listing from "./Listing";
+import styled from "styled-components";
+import { ListingsContext } from "../App";
 
 const ListingsStyles = styled.div`
   display: grid;
@@ -14,9 +13,12 @@ export default function SearchesList() {
   const { listings, fetchListings } = useContext(ListingsContext);
   return (
     <>
-      <p>{listings.length} Listings for review <button onClick={fetchListings}>Refresh</button></p>
+      <p>
+        {listings.length} Listings for review{" "}
+        <button onClick={fetchListings}>Refresh</button>
+      </p>
       <ListingsStyles>
-        {listings.map(listing => (
+        {listings.map((listing) => (
           <Listing key={listing._id} listing={listing} />
         ))}
       </ListingsStyles>

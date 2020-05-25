@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { endpoint } from '../config';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { endpoint } from "../../config";
+import styled from "styled-components";
 
 function useSearches() {
   const [searches, setSearches] = useState([]);
@@ -19,7 +19,7 @@ export default function SearchesList() {
   return (
     <div>
       <h3>Currently Tracking:</h3>
-      {searches.map(search => (
+      {searches.map((search) => (
         <div key={search._id}>
           <a href={search.feed}>{search.name}</a>
         </div>

@@ -1,8 +1,8 @@
-import { formatDistance } from 'date-fns';
-import styled from 'styled-components';
-import axios from 'axios';
-import { useState, useCallback } from 'react';
-import { endpoint } from '../config';
+import { formatDistance } from "date-fns";
+import styled from "styled-components";
+import axios from "axios";
+import React, { useState, useCallback } from "react";
+import { endpoint } from "../../config";
 
 const ListingStyles = styled.div`
   border: 10px solid #f9f9f9;
@@ -61,9 +61,9 @@ const PriceTag = styled.span`
   align-items: center;
 `;
 
-const formatter = new Intl.NumberFormat('en-CA', {
-  style: 'currency',
-  currency: 'CAD',
+const formatter = new Intl.NumberFormat("en-CA", {
+  style: "currency",
+  currency: "CAD",
   maximumSignificantDigits: 1,
 });
 export default function Listing({ listing }) {

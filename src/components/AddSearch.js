@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { useState, useCallback } from 'react';
-import { endpoint } from '../config';
+import axios from "axios";
+import React, { useState, useCallback } from "react";
+import { endpoint } from "../../config";
 
-function useInput(initalValue = '') {
+function useInput(initalValue = "") {
   const [value, update] = useState(initalValue);
-  const onChange = useCallback(e => {
+  const onChange = useCallback((e) => {
     update(e.currentTarget.value);
   }, []);
   return { value, onChange };
@@ -20,12 +20,12 @@ async function handleSubmit(e, data) {
   console.log(res);
 }
 export default function AddSearch() {
-  const name = useInput('Urban Barn');
+  const name = useInput("Urban Barn");
   const feed = useInput(
-    'https://www.kijiji.ca/rss-srp-couch-futon/ontario/urban-barn-leather/k0c238l9004'
+    "https://www.kijiji.ca/rss-srp-couch-futon/ontario/urban-barn-leather/k0c238l9004"
   );
   return (
-    <form onSubmit={e => handleSubmit(e, { name, feed })}>
+    <form onSubmit={(e) => handleSubmit(e, { name, feed })}>
       <input type="text" name="name" placeholder="name" {...name} />
       <input type="text" name="feed" placeholder="feed" {...feed} />
       <button type="submit">+ Add Search</button>
