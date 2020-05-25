@@ -45,6 +45,7 @@ const ListingStyles = styled.div`
       &.nah {
         background: tomato;
       }
+      cursor: pointer;
     }
   }
 `;
@@ -61,10 +62,13 @@ const PriceTag = styled.span`
   align-items: center;
 `;
 
+const renderHTML = (rawHTML) =>
+  React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
 const formatter = new Intl.NumberFormat("en-CA", {
   style: "currency",
   currency: "CAD",
-  maximumSignificantDigits: 1,
+  maximumSignificantDigits: 6,
 });
 export default function Listing({ listing }) {
   const [nah, setNah] = useState();
@@ -85,7 +89,7 @@ export default function Listing({ listing }) {
         <time dateTime={listing.date}>
           {formatDistance(new Date(listing.date), new Date())} ago
         </time>
-        <h2>{listing.title}</h2>
+        <h2>{renderHTML(listing.title)}</h2>
         <div className="buttons">
           <button
             onClick={() => {
